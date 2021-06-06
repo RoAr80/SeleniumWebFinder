@@ -1,0 +1,43 @@
+﻿<Window x:Class="SeleniumWebFinder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeleniumWebFinder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+
+        <StackPanel Margin="10">
+
+            <DockPanel Margin="0 0 0 10" LastChildFill="False">
+                <Button  DockPanel.Dock="Left" Width="80" Height="25" Command="{Binding GoDefaultCommandAsync}">Default Go</Button>
+            </DockPanel>
+
+            <DockPanel Margin="0 0 0 10" LastChildFill="True" >
+                <TextBlock FontSize="20" DockPanel.Dock="Left" Margin="0 0 10 0">Отдел:</TextBlock>
+                <TextBox FontSize="20" Text="{Binding DepartmentQuery, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </DockPanel>
+            <DockPanel Margin="0 0 0 10" LastChildFill="True" >
+                <TextBlock FontSize="20" DockPanel.Dock="Left" Margin="0 0 10 0">Язык:</TextBlock>
+                <TextBox FontSize="20" Text="{Binding LanguageQuery, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </DockPanel>
+            <DockPanel Margin="0 0 0 10" LastChildFill="True" >
+                <TextBlock FontSize="20" DockPanel.Dock="Left" Margin="0 0 10 0">Ожидаемое количество вакансий:</TextBlock>
+                <TextBox FontSize="20" Text="{Binding ExpectedVacancies, UpdateSourceTrigger=PropertyChanged}" />
+            </DockPanel>
+
+            <DockPanel Margin="0 0 0 10" LastChildFill="False">
+                <Button  DockPanel.Dock="Left" Width="40" Height="25" Command="{Binding StartSearchCommandAsync}">Go</Button>
+            </DockPanel>
+            <DockPanel  >
+                <TextBlock FontSize="20" DockPanel.Dock="Left" Margin="0 0 10 0">Количество вакансий:</TextBlock>
+                <TextBlock FontSize="20" Text="{Binding VacanciesCount}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock FontSize="20" Text="{Binding VacanciesExpectationText}"/>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>
